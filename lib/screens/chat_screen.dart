@@ -134,9 +134,7 @@ class ChatScreen extends StatelessWidget {
                 border: Border.all(color: AppColors.primaryRed, width: 2.w),
               ),
               child: CircleAvatar(
-                backgroundImage: const NetworkImage(
-                  'https://i.pravatar.cc/150?img=5',
-                ),
+                backgroundImage: AssetImage("assets/images/user_profile.jpg",),
                 radius: 20.r,
               ),
             ),

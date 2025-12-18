@@ -88,7 +88,7 @@ class PaymentSuccessDialog extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () async {
                   Get.back();
-                  Get.delete<ProductController>(force: true);
+                  // Get.delete<ProductController>(force: true);
 
                   await Future.delayed(const Duration(milliseconds: 100));
 

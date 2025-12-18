@@ -11,9 +11,9 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ProfileController controller = Get.put(ProfileController());
     final double imageSize = 100.w;
-    final double headerSpace = 120.h;
+    final double headerSpace = 160.h;
 
-    final double imageTopPosition = headerSpace - (imageSize / 2);
+    final double imageTopPosition = headerSpace - (imageSize / 1.5);
 
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -94,7 +94,7 @@ class ProfileScreen extends StatelessWidget {
                           onPressed: controller.editProfile,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppColors.textDark,
-                            padding: EdgeInsets.symmetric(vertical: 25.h),
+                            padding: EdgeInsets.symmetric(vertical: 18.h),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.r),
                             ),
@@ -121,12 +121,12 @@ class ProfileScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 15.w),
+                      SizedBox(width: 25.w),
                       Expanded(
                         child: OutlinedButton(
                           onPressed: controller.logout,
                           style: OutlinedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 25.h),
+                            padding: EdgeInsets.symmetric(vertical: 18.h),
                             side: BorderSide(
                               color: AppColors.primaryRed,
                               width: 2.w,
@@ -185,8 +185,8 @@ class ProfileScreen extends StatelessWidget {
                   padding: EdgeInsets.all(3.0.r),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.r),
-                    child: Image.network(
-                      'https://i.pravatar.cc/300?img=5',
+                    child: Image.asset(
+                      "assets/images/user_profile.jpg",
                       fit: BoxFit.cover,
                     ),
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodgo_static/screens/add_on_screen.dart';
 import 'package:foodgo_static/screens/order_summary_screen.dart';
 import 'package:foodgo_static/widgets/build_count_button.dart';
 import 'package:foodgo_static/widgets/build_custom_appbar.dart';
@@ -113,18 +114,27 @@ class ProductDetailScreen extends StatelessWidget {
                                 fontSize: 14.sp,
                               ),
                             ),
-                            SizedBox(
-                              width: 150.w,
-                              child: Slider(
-                                value: controller.spicyValue.value,
-                                activeColor: Colors.red,
-                                inactiveColor: AppColors.text.withValues(
-                                  alpha: 0.1,
+                            SizedBox(height: 10.h,),
+                            Obx(
+                                  () => SliderTheme(
+                                data: SliderTheme.of(context).copyWith(
+                                  activeTrackColor: AppColors.primaryRed,
+                                  inactiveTrackColor: Colors.grey[200],
+                                  thumbColor: AppColors.primaryRed,
+                                  trackHeight: 4.h,
+                                  thumbShape: RoundSliderThumbShape(
+                                    enabledThumbRadius: 8.r,
+                                  ),
+                                  overlayShape: SliderComponentShape.noOverlay,
                                 ),
-                                onChanged: (val) =>
-                                    controller.spicyValue.value = val,
+                                child: Slider(
+                                  value: controller.spicyValue.value,
+                                  onChanged: (val) =>
+                                  controller.spicyValue.value = val,
+                                ),
                               ),
                             ),
+                            SizedBox(height: 10.h,),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -231,11 +241,11 @@ class ProductDetailScreen extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15.r),
                               ),
-                              padding: EdgeInsets.symmetric(vertical: 25.h),
+                              padding: EdgeInsets.symmetric(vertical: 15.h),
                             ),
                             onPressed: () {
                               controller.addToCart();
-                              Get.to(() => OrderSummaryScreen());
+                              Get.to(() => AddOnScreen());
                             },
                             child: Text(
                               "ORDER NOW",
